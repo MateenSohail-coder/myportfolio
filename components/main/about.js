@@ -37,7 +37,7 @@ const aboutData = {
         year: new Date().getFullYear(),
         event:
           "Now I am focusing on improving my skills in full-stack development and exploring new technologies.And continue my studies at university level by doing BSCS",
-        edu: "Will start in At BSCS at University.",
+        edu: "Will start BSCS program at University.",
       },
     ],
   },

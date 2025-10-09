@@ -20,7 +20,15 @@ export default function Contact() {
   const inputRefs = useRef([]);
   const buttonRef = useRef(null);
   const messageRef = useRef(null);
+useEffect(() => {
+  if (submitMessage) {
+    const timer = setTimeout(() => {
+      setSubmitMessage(""); // clears the message after 2 seconds
+    }, 3000);
 
+    return () => clearTimeout(timer); // cleanup on unmount or new message
+  }
+}, [submitMessage]);
   // Entrance animation
   useEffect(() => {
     gsap.from(formRef.current, {

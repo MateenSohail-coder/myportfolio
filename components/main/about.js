@@ -205,7 +205,12 @@ export default function About() {
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div ref={imageRef} className="md:w-1/3 cursor-pointer">
             <div className="w-64 h-64 bg-gray-100 rounded-full mx-auto flex items-center justify-center shadow-lg overflow-hidden">
-              <Image src="../am.jpg" alt="" className="bg-cover" fill="true" />
+              <Image
+                src="/am.jpg"
+                alt="Abdul Mateen"
+                className="object-cover rounded-full"
+                fill
+              />
             </div>
           </div>
           <div ref={textRef} className="md:w-2/3">

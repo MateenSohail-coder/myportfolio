@@ -22,6 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <meta name="robots" content="index, follow" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

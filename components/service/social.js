@@ -15,12 +15,20 @@ export default function SocialButtons() {
 
       {/* Button container */}
       <div className="relative flex items-center justify-center mt-10 bg-blue-600/40 px-3 rounded-2xl shadow-lg max-w-40 mx-auto">
-        <div className="relative flex items-end gap-x-2 p-2">
+        <div
+          onClick={() =>
+            window.open(
+              "https://github.com/MateenSohail-coder/myportfolio.git",
+              "_blank"
+            )
+          }
+          className="relative flex items-end gap-x-2 p-2"
+        >
           {/* GitHub */}
           <div className="relative">
             <div
               style={{ clipPath: "url(#squircleClip)" }}
-              className="w-14 h-14 bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl flex items-center justify-center shadow-lg border border-gray-600/50 cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-2 hover:shadow-2xl"
+              className="w-14 h-14 bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl flex items-center justify-center shadow-lg border border-gray-600/50 cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-2 active:translate-0 hover:shadow-2xl"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -45,7 +53,7 @@ export default function SocialButtons() {
           >
             <div
               style={{ clipPath: "url(#squircleClip)" }}
-              className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center shadow-lg border border-blue-500/50 cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-2 hover:shadow-2xl"
+              className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center shadow-lg border border-blue-500/50 cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-2 hover:shadow-2xl  active:translate-0"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

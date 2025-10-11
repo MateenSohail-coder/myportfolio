@@ -98,7 +98,7 @@ export default function Navbar() {
             </svg>
             My Portfolio
           </div>
-          <div className="hidden md:flex font-antic font-extrabold space-x-8">
+          <div className="hidden md:flex font-antic text-blue-600 font-extrabold space-x-8">
             <Link
               href="#hero"
               className={`transition-all duration-300 px-4 py-1 rounded-full  ${

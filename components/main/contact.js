@@ -20,16 +20,18 @@ export default function Contact() {
   const inputRefs = useRef([]);
   const buttonRef = useRef(null);
   const messageRef = useRef(null);
-useEffect(() => {
-  if (submitMessage) {
-    const timer = setTimeout(() => {
-      setSubmitMessage(""); // clears the message after 2 seconds
-    }, 3000);
 
-    return () => clearTimeout(timer); // cleanup on unmount or new message
-  }
-}, [submitMessage]);
-  // Entrance animation
+  // Clear the success/error message after 3 seconds
+  useEffect(() => {
+    if (submitMessage) {
+      const timer = setTimeout(() => {
+        setSubmitMessage("");
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitMessage]);
+
+  // Animate form entrance
   useEffect(() => {
     gsap.from(formRef.current, {
       y: 50,
@@ -77,11 +79,11 @@ useEffect(() => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const validationErrors = validateForm();
+
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
-      // Shake error fields
+      // Animate shake for invalid fields
       Object.keys(validationErrors).forEach((field) => {
         const index = ["name", "email", "message"].indexOf(field);
         gsap.to(inputRefs.current[index], {
@@ -101,9 +103,7 @@ useEffect(() => {
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
@@ -141,12 +141,12 @@ useEffect(() => {
       <div className="max-w-4xl mx-auto px-4">
         <h2
           className="
-  text-4xl md:text-5xl text-stroke font-anton-sc font-extrabold text-gray-900 mb-16
-  relative flex items-center justify-center
-  before:content-[''] before:text-center before:mx-auto before:relative before:right-0 before:bottom-0 before:h-2 before:bg-blue-600 before:w-1/3 before:rounded-2xl
-  after:content-[''] after:text-center after:mx-auto after:relative after:left-0 after:bottom-0 after:h-2 after:bg-blue-600 after:w-1/3 after:rounded-2xl
-  mx-auto text-center
-"
+            text-4xl md:text-5xl text-stroke font-anton-sc font-extrabold text-gray-900 mb-16
+            relative flex items-center justify-center
+            before:content-[''] before:text-center before:mx-auto before:relative before:right-0 before:bottom-0 before:h-2 before:bg-blue-600 before:w-1/3 before:rounded-2xl
+            after:content-[''] after:text-center after:mx-auto after:relative after:left-0 after:bottom-0 after:h-2 after:bg-blue-600 after:w-1/3 after:rounded-2xl
+            mx-auto text-center
+          "
         >
           Contact Me
         </h2>
@@ -165,47 +165,52 @@ useEffect(() => {
                 {field.charAt(0).toUpperCase() + field.slice(1)}
               </label>
 
-              {field !== "message" ? (
-                <input
-                  type={field === "email" ? "email" : "text"}
-                  id={field}
-                  name={field}
-                  value={formData[field]}
-                  onChange={handleInputChange}
-                  onFocus={() => handleFocus(idx)}
-                  onBlur={() => handleBlur(idx)}
-                  ref={(el) => (inputRefs.current[idx] = el)}
-                  className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 transition-colors duration-300 ${
-                    errors[field]
-                      ? "border-red-500 focus:ring-red-500"
-                      : "border-gray-300 focus:ring-blue-500"
-                  }`}
-                  required
-                />
-              ) : (
-                <textarea
-                  id={field}
-                  name={field}
-                  value={formData[field]}
-                  onChange={handleInputChange}
-                  onFocus={() => handleFocus(idx)}
-                  onBlur={() => handleBlur(idx)}
-                  ref={(el) => (inputRefs.current[idx] = el)}
-                  rows="5"
-                  className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 transition-colors duration-300 ${
-                    errors[field]
-                      ? "border-red-500 focus:ring-red-500"
-                      : "border-gray-300 focus:ring-blue-500"
-                  }`}
-                  required
-                />
-              )}
+              {/* Wrapper for GSAP scaling */}
+              <div
+                ref={(el) => (inputRefs.current[idx] = el)}
+                className="relative"
+              >
+                {field !== "message" ? (
+                  <input
+                    type={field === "email" ? "email" : "text"}
+                    id={field}
+                    name={field}
+                    value={formData[field]}
+                    onChange={handleInputChange}
+                    onFocus={() => handleFocus(idx)}
+                    onBlur={() => handleBlur(idx)}
+                    className={`w-full px-4 py-3 border rounded-md text-neutral-900 focus:outline-none focus:ring-2 transition-colors duration-300 ${
+                      errors[field]
+                        ? "border-red-500 focus:ring-red-500"
+                        : "border-gray-300 focus:ring-blue-500"
+                    }`}
+                    required
+                  />
+                ) : (
+                  <textarea
+                    id={field}
+                    name={field}
+                    value={formData[field]}
+                    onChange={handleInputChange}
+                    onFocus={() => handleFocus(idx)}
+                    onBlur={() => handleBlur(idx)}
+                    rows={5}
+                    className={`w-full px-4 py-3 border rounded-md text-neutral-900 resize-none focus:outline-none focus:ring-2 transition-colors duration-300 ${
+                      errors[field]
+                        ? "border-red-500 focus:ring-red-500"
+                        : "border-gray-300 focus:ring-blue-500"
+                    }`}
+                    required
+                  />
+                )}
+              </div>
 
               {errors[field] && (
                 <p className="text-red-500 text-sm mt-1">{errors[field]}</p>
               )}
             </div>
           ))}
+
           <button
             ref={buttonRef}
             type="submit"
@@ -218,6 +223,7 @@ useEffect(() => {
           >
             {isSubmitting ? "Sending..." : "Send Message"}
           </button>
+
           {submitMessage && (
             <div
               ref={messageRef}

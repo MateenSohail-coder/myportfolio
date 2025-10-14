@@ -54,8 +54,8 @@ const aboutData = {
 };
 
 const stats = [
-  { label: "Years of Experience", value: 1 },
-  { label: "Projects Completed", value: 10 },
+  { label: "Years of Experience", value: "1+" },
+  { label: "Projects Completed", value: "10+" },
 ];
 
 export default function About() {
@@ -114,23 +114,9 @@ export default function About() {
       gsap.to(image, { scale: 1, duration: 0.3, ease: "power2.out" });
     });
 
-    // Mouse follow effect on background
-    const bg = aboutRef.current;
-    const handleMouseMove = (e) => {
-      const rect = bg.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      gsap.to(bg, {
-        background: `radial-gradient(circle at ${x}px ${y}px, rgba(59, 130, 246,0.3) 0%, transparent 50%)`,
-        duration: 0.5,
-      });
-    };
-    bg.addEventListener("mousemove", handleMouseMove);
-
     return () => {
       image.removeEventListener("mouseenter", () => {});
       image.removeEventListener("mouseleave", () => {});
-      bg.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
@@ -204,7 +190,7 @@ export default function About() {
         </h2>
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div ref={imageRef} className="md:w-1/3 cursor-pointer">
-            <div className="w-64 h-64 bg-gray-100 rounded-full mx-auto flex items-center justify-center shadow-lg overflow-hidden">
+            <div className="w-64 h-64 relative bg-gray-100 rounded-full mx-auto flex items-center justify-center shadow-lg overflow-hidden">
               <Image
                 src="/am.jpg"
                 alt="Abdul Mateen"
@@ -261,7 +247,7 @@ export default function About() {
                 ref={(el) => (counterRefs.current[index] = el)}
                 className="text-4xl font-bold text-blue-600"
               >
-                0
+                {stat.value}
               </div>
               <div className="text-lg text-gray-700">{stat.label}</div>
             </div>

@@ -14,7 +14,7 @@ export default function SocialButtons() {
       </svg>
 
       {/* Button container */}
-      <div className="relative flex items-center justify-center mt-10 bg-blue-600/40 px-3 rounded-2xl shadow-lg max-w-40 mx-auto">
+      <div className="relative flex items-center justify-center mt-10 bg-blue-600/40 px-3 rounded-2xl shadow-lg max-w-70 mx-auto">
         <div
           onClick={() =>
             window.open(
@@ -40,7 +40,6 @@ export default function SocialButtons() {
               </svg>
             </div>
           </div>
-
           {/* LinkedIn */}
           <div
             onClick={() =>
@@ -65,9 +64,26 @@ export default function SocialButtons() {
               </svg>
             </div>
           </div>
-
+          <div
+            style={{ clipPath: "url(#squircleClip)" }}
+            className="w-14 h-14 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center shadow-lg border border-green-400/50 cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-2 hover:shadow-2xl active:translate-0"
+          >
+            {/* Fiverr SVG Logo */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 508.02 508.02"
+              className="h-8 w-8"
+            >
+              <circle fill="#1dbf73" cx="254.01" cy="254.01" r="254.01" />
+              <circle fill="#fff" cx="315.97" cy="162.19" r="26.87" />
+              <path
+                fill="#fff"
+                d="M345.87,207.66h-123V199.6c0-15.83,15.83-16.13,23.89-16.13,9.25,0,13.44.9,13.44.9v-43.6a155.21,155.21,0,0,0-19.71-1.19c-25.68,0-73.16,7.16-73.16,61.51V208h-22.4v40.31h22.4v85.1h-20.9v40.31H247.34V333.37H222.85v-85.1H290v85.1H269.13v40.31h97.65V333.37H345.87Z"
+                transform="translate(-1.83 -0.98)"
+              />
+            </svg>
+          </div>
           {/* YouTube */}
-
           {/* Discord */}
         </div>
       </div>

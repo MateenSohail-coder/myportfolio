@@ -45,6 +45,14 @@ const services = [
     details:
       "Offering strategic guidance on technology stack selection, architecture design, and development best practices. I help businesses optimize their digital presence.",
   },
+  {
+    title: "Portfolio Development",
+    description:
+      "Creating personalized portfolios to showcase skills and projects.",
+    icon: "📁",
+    details:
+      "I design and develop custom portfolios that highlight your unique skills and projects, ensuring you stand out to potential employers or clients.",
+  },
 ];
 
 export default function Services() {

@@ -88,7 +88,7 @@ export default function Navbar() {
         } z-50 transition-all duration-300`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-          <div className="text-3xl font-bold font-anton text-gray-800 flex items-center">
+          <div className="text-3xl font-anton text-gray-800 flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"

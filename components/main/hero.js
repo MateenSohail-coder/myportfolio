@@ -25,6 +25,7 @@ export default function Hero() {
     "Backend developer",
     "UI/UX designer",
     "Problem Solver",
+    "Creative Portfolio Creator",
   ];
 
   // Animate profile image and title intro

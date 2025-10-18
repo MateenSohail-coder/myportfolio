@@ -16,6 +16,7 @@ const ImageSvg = ({ height = 300, width = 300 }) => {
         height="700"
         xlinkHref="image.png"
         href="../logo.png"
+        className="rounded-full"
       />
     </svg>
   );

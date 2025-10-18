@@ -112,15 +112,15 @@ export default function Services() {
             </CarouselContent>
 
             {/* Absolute positioned prev/next buttons */}
-            <div className="absolute top-1/2 left-0 -translate-y-1/2 z-50 p-2 hidden md:block">
+            <div className="w-1/2 absolute top-[110%] left-10 -translate-y-1/2 z-50 p-2">
               <CarouselPrevious
-                className="w-12 h-12 bg-blue-600/60 hover:bg-blue-600 text-white rounded-full flex items-center justify-center cursor-pointer"
+                className="w-full h-12 bg-blue-600/60 hover:bg-blue-600 active:bg-blue-600 text-white rounded flex items-center justify-center cursor-pointer"
                 aria-label="Previous"
               />
             </div>
-            <div className="absolute top-1/2 right-0 -translate-y-1/2 z-50 p-2 hidden md:block">
+            <div className="w-1/2 absolute top-[110%] right-10 -translate-y-1/2 z-50 p-2">
               <CarouselNext
-                className="w-12 h-12 bg-blue-600/60 hover:bg-blue-600 text-white rounded-full flex items-center justify-center cursor-pointer"
+                className="w-full h-12 bg-blue-600/60 active:bg-blue-600 hover:bg-blue-600 text-white rounded flex items-center justify-center cursor-pointer"
                 aria-label="Next"
               />
             </div>

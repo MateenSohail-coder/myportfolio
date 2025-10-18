@@ -65,6 +65,9 @@ export default function SocialButtons() {
             </div>
           </div>
           <div
+            onClick={() =>
+              window.open(" http://www.fiverr.com/s/5rLd1RQ ", "_blank")
+            }
             style={{ clipPath: "url(#squircleClip)" }}
             className="w-14 h-14 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center shadow-lg border border-green-400/50 cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-2 hover:shadow-2xl active:translate-0"
           >

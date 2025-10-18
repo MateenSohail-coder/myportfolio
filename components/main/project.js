@@ -66,7 +66,7 @@ const projects = [
 
 export default function Project() {
   return (
-    <section id="projects" className="py-20 bg-white scroll-mt-20 relative">
+    <section className="py-20 bg-white scroll-mt-20 relative">
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Title */}
         <h2
@@ -93,7 +93,10 @@ export default function Project() {
                 <h3 className="text-2xl font-bold text-[#225ac0] mb-3 text-center md:text-left w-full">
                   {project.title}
                 </h3>
-                <div className="relative h-56 w-full overflow-hidden rounded-2xl border border-blue-500 shadow-md">
+                <div
+                  id="projects"
+                  className="relative h-56 w-full overflow-hidden rounded-2xl border border-blue-500 shadow-md"
+                >
                   <Image
                     src={project.image}
                     alt={project.title}

@@ -172,7 +172,6 @@ export default function About() {
 
   return (
     <section
-      id="about"
       ref={aboutRef}
       className="py-20 bg-white transition-colors duration-500 relative overflow-hidden"
     >
@@ -199,7 +198,7 @@ export default function About() {
               />
             </div>
           </div>
-          <div ref={textRef} className="md:w-2/3">
+          <div id="about" ref={textRef} className="md:w-2/3">
             <div className="flex space-x-4 mb-6">
               {Object.keys(aboutData).map((tab) => (
                 <button

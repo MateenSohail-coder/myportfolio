@@ -4,10 +4,10 @@ export async function POST(request) {
   try {
     // ✅ Use secure, server-only environment variables
     const required = [
-      "NEXT_PUBLIC_EMAILJS_SERVICE_ID",
-      "NEXT_PUBLIC_EMAILJS_TEMPLATE_ID",
-      "NEXT_PUBLIC_EMAILJS_REPLY_TEMPLATE_ID",
-      "NEXT_PUBLIC_EMAILJS_USER_ID",
+      "EMAILJS_SERVICE_ID",
+      "EMAILJS_TEMPLATE_ID",
+      "EMAILJS_REPLY_TEMPLATE_ID",
+      "EMAILJS_USER_ID",
       "EMAILJS_PRIVATE_KEY",
     ];
 
@@ -36,15 +36,15 @@ export async function POST(request) {
 
     // ✅ Base payload for EmailJS requests
     const base = {
-      service_id: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-      user_id: process.env.NEXT_PUBLIC_EMAILJS_USER_ID,
-      accessToken: process.env.NEXT_PUBLIC_EMAILJS_PRIVATE_KEY,
+      service_id: process.env.EMAILJS_SERVICE_ID,
+      user_id: process.env.EMAILJS_USER_ID,
+      accessToken: process.env.EMAILJS_PRIVATE_KEY,
     };
 
     // ✅ Main email to you
     const mainPayload = {
       ...base,
-      template_id: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+      template_id: process.env.EMAILJS_TEMPLATE_ID,
       template_params: {
         from_name: name,
         from_email: email,
@@ -70,7 +70,7 @@ export async function POST(request) {
     // ✅ Auto-reply to user
     const replyPayload = {
       ...base,
-      template_id: process.env.NEXT_PUBLIC_EMAILJS_REPLY_TEMPLATE_ID,
+      template_id: process.env.EMAILJS_REPLY_TEMPLATE_ID,
       template_params: {
         to_email: email,
         user_name: name,

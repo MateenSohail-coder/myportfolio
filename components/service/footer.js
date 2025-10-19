@@ -7,9 +7,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 py-10 text-center flex flex-col items-center gap-6">
         {/* Logo and copyright */}
         <div className="flex items-center gap-3">
-          <div className="rounded-full overflow-hidden">
-            <ImageSvg height={55} width={55} />
-          </div>{" "}
+          <ImageSvg height={100} width={100} />
+
           <span className="text-gray-600 font-medium">
             © {new Date().getFullYear()}. All rights reserved.
           </span>

@@ -225,21 +225,21 @@ export default function Contact() {
             {isSubmitting ? "Sending..." : "Send Message"}
           </button>
           <SocialButtons />
-          {submitMessage && (
-            <div
-              ref={messageRef}
-              className={`mt-4 p-4 rounded-md border ${
-                submitMessage.startsWith("✅")
-                  ? "bg-green-100 border-green-400 text-green-700"
-                  : "bg-red-100 border-red-400 text-red-700"
-              }`}
-              aria-live="polite"
-            >
-              {submitMessage}
-            </div>
-          )}
         </form>
       </div>
+      {submitMessage && (
+        <div
+          ref={messageRef}
+          className={`fixed z-50 w-full text-center text-sm sm:text-1xl md:text-xl top-0 p-4 py-8 border ${
+            submitMessage.startsWith("✅")
+              ? "bg-green-100 border-green-400 text-green-700"
+              : "bg-red-100 border-red-400 text-red-700"
+          }`}
+          aria-live="polite"
+        >
+          {submitMessage}
+        </div>
+      )}
     </section>
   );
 }

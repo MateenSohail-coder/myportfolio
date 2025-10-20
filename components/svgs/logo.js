@@ -1,6 +1,6 @@
 import React from "react";
 
-const ImageSvg = ({ height = 300, width = 300 }) => {
+const ImageSvg = ({ height = 300, width = 300, src = "..logo.png" }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,7 +15,7 @@ const ImageSvg = ({ height = 300, width = 300 }) => {
         width="700"
         height="700"
         xlinkHref="image.png"
-        href="../logo.png"
+        href={src}
         className="rounded-full"
       />
     </svg>

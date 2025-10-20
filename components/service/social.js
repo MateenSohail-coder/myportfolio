@@ -14,7 +14,7 @@ export default function SocialButtons() {
       </svg>
 
       {/* Button container */}
-      <div className="relative flex items-center justify-center mt-10 bg-blue-600/40 px-3 rounded-2xl shadow-lg max-w-70 mx-auto">
+      <div className="relative flex items-center justify-center mt-10 bg-blue-600/40 px-3 rounded-2xl shadow-lg max-w-50 mx-auto">
         <div
           onClick={() =>
             window.open(

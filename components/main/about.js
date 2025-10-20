@@ -189,7 +189,10 @@ export default function About() {
         </h2>
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div ref={imageRef} className="md:w-1/3 cursor-pointer">
-            <div className="w-64 h-64 relative bg-gray-100 rounded-full mx-auto flex items-center justify-center shadow-lg overflow-hidden">
+            <div
+              id="about"
+              className="w-64 h-64 relative bg-gray-100 rounded-full mx-auto flex items-center justify-center shadow-lg overflow-hidden"
+            >
               <Image
                 src="/am.jpg"
                 alt="Abdul Mateen"
@@ -198,7 +201,7 @@ export default function About() {
               />
             </div>
           </div>
-          <div id="about" ref={textRef} className="md:w-2/3">
+          <div ref={textRef} className="md:w-2/3">
             <div className="flex space-x-4 mb-6">
               {Object.keys(aboutData).map((tab) => (
                 <button

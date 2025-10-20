@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
+import ImageSvg from "../svgs/logo";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -105,14 +106,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
           {/* Logo */}
           <div className="text-2xl font-anton text-blue-700 flex items-center gap-2 cursor-pointer select-none">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 32 32"
-              className="h-8 w-8 fill-blue-600 hover:scale-110 transition-transform"
-            >
-              <path d="M21.099 0c-0.187 0-0.375 0.052-0.536 0.151..." />
-            </svg>
-            My Portfolio
+            <ImageSvg width={150} height={180} src="../Navlogo.png" />
           </div>
 
           {/* Desktop Menu */}

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { Download } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -98,7 +99,14 @@ export default function Hero() {
 
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, currentIndex, phrases]); // ✅ Added phrases dependency
+  function downloadCV() {
+    const cvUrl = "/CV.pdf";
 
+    const link = document.createElement("a");
+    link.href = cvUrl;
+    link.download = "My_CV.pdf";
+    link.click();
+  }
   return (
     <section
       id="hero"
@@ -111,7 +119,6 @@ export default function Hero() {
         className="absolute top-10 right-10 w-72 h-72 bg-blue-300 rounded-full opacity-30 filter blur-3xl"
         aria-hidden="true"
       ></div>
-
       <div className="text-center max-w-4xl mx-auto px-4 relative z-10">
         {/* Profile Image */}
         <div className="mb-8">
@@ -150,13 +157,13 @@ export default function Hero() {
           ref={buttonRef}
           className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full text-lg transition-colors duration-300"
           onClick={() => {
-            const aboutEl = document.getElementById("about");
-            if (aboutEl) {
-              aboutEl.scrollIntoView({ behavior: "smooth" });
-            }
+            downloadCV();
           }}
         >
-          Learn More
+          <span className="flex gap-1">
+            {" "}
+            <Download /> <span>Download CV</span>
+          </span>{" "}
         </button>
       </div>
     </section>

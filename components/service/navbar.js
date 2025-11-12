@@ -106,7 +106,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
           {/* Logo */}
           <div className="text-2xl font-anton text-blue-700 flex items-center gap-2 cursor-pointer select-none">
-            <ImageSvg width={150} height={180} src="../Navlogo.png" />
+            <ImageSvg width={120} height={150} src="../Navlogo.png" />
           </div>
 
           {/* Desktop Menu */}

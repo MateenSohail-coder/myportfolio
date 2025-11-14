@@ -11,7 +11,7 @@ const projects = [
     description:
       "An AI-powered chatbot web application that provides real-time responses using OpenAI's GPT-3.5 API with a sleek and responsive design.",
     image: "/chatbot.png",
-    color: "#FF6F61",
+    color: "#FF5733",
     link: "https://chatbot-abdulmateen.vercel.app/",
     github: "https://github.com/MateenSohail-coder/chatbot-abdulmateen.git",
     tags: ["Next.js", "React", "Tailwind", "Animation", "Api Integration"],
@@ -103,14 +103,24 @@ export default function Project() {
             <div
               key={index}
               className={`bg-gradient-to-br from-white/90 via-[#e8f0ff]/80 to-[#d8e0ff]/70 flex flex-col md:flex-row w-full gap-6 md:gap-8 items-center rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 backdrop-blur-sm ${
-                project.premium ? "ring-2 ring-yellow-400" : ""
+                project.premium ? "ring-4 ring-yellow-400" : ""
               }`}
             >
               {/* Left: Image & Title */}
-              <div className="w-full md:w-[35%] flex flex-col items-start">
+              <div className="w-full flex gap-3 md:w-[35%] flex flex-col items-start">
                 <h3 className="text-2xl font-bold text-[#225ac0] mb-3 text-center md:text-left w-full">
                   {project.title}
                 </h3>
+                <Badge
+                  key={i}
+                  style={{
+                    backgroundColor: project.color,
+                    color: "", // optional: adjust text color for contrast
+                  }}
+                  className="font-semibold bg-yellow-400 text-white hover:opacity-80 transition-colors"
+                >
+                  AI
+                </Badge>
                 <div className="relative h-56 w-full overflow-hidden rounded-2xl border border-blue-500 shadow-md">
                   <Image
                     src={project.image}

@@ -15,6 +15,7 @@ const projects = [
     link: "https://chatbot-abdulmateen.vercel.app/",
     github: "https://github.com/MateenSohail-coder/chatbot-abdulmateen.git",
     tags: ["Next.js", "React", "Tailwind", "Animation", "Api Integration"],
+    premium: true,
   },
   {
     title: "Photographer portfolio",
@@ -34,7 +35,9 @@ const projects = [
       "Image gallery",
       "Search engine",
     ],
+    premium: false,
   },
+
   {
     title: "Linkhub",
     description:
@@ -55,6 +58,7 @@ const projects = [
       "CTA",
       "JWT tokens",
     ],
+    premium: false,
   },
   {
     title: "Weather App",
@@ -72,11 +76,11 @@ const projects = [
       "Api Integration",
       "Search engine",
     ],
+    premium: false,
   },
 ];
 
 export default function Project() {
-  const [premium, setpremium] = useState(false);
   return (
     <section className="py-20 bg-white scroll-mt-20 relative">
       <div className="max-w-7xl mx-auto px-4">
@@ -99,7 +103,7 @@ export default function Project() {
             <div
               key={index}
               className={`bg-gradient-to-br from-white/90 via-[#e8f0ff]/80 to-[#d8e0ff]/70 flex flex-col md:flex-row w-full gap-6 md:gap-8 items-center rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 backdrop-blur-sm ${
-                premium ? "ring-2 ring-yellow-400" : ""
+                project.premium ? "ring-2 ring-yellow-400" : ""
               }`}
             >
               {/* Left: Image & Title */}

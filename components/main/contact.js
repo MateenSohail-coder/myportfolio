@@ -137,11 +137,11 @@ export default function Contact() {
           <div ref={infoRef} className="space-y-10">
             <div>
               <h2 className="text-5xl md:text-6xl font-anton-sc font-extrabold text-gray-900 mb-6">
-                Let's Work <br />
+                Let&apos;s Work <br />
                 <span className="text-blue-600">Together</span>
               </h2>
               <p className="text-lg text-gray-600 font-antic max-w-md leading-relaxed">
-                Have a project in mind or just want to say hi? I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+                Have a project in mind or just want to say hi? I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
               </p>
             </div>
 

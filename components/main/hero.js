@@ -134,7 +134,7 @@ export default function Hero() {
             Available for work
           </div>
           <h1 className="text-5xl md:text-7xl font-anton-sc font-extrabold text-gray-900 leading-tight mb-4">
-            Hi, I'm <br />
+            Hi, I&apos;m <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-900">
               Abdul Mateen
             </span>

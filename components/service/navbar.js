@@ -126,7 +126,7 @@ export default function Navbar() {
             className="flex items-center justify-center cursor-pointer select-none"
           >
            
-               <Image src="/Navlogo.png" width={100} height={10} />
+               <Image src="/Navlogo.png" alt="logo" width={100} height={10} />
               
           </div>
 

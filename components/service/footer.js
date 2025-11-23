@@ -36,7 +36,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-gray-500 font-antic text-lg max-w-sm leading-relaxed">
-              Crafting exceptional digital experiences with precision, creativity, and modern technology. Let's build something amazing together.
+              Crafting exceptional digital experiences with precision, creativity, and modern technology. Let&apos;s build something amazing together.
             </p>
             <div className="pt-4">
               <SocialButtons />

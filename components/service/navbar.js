@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import ImageSvg from "../svgs/logo";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,15 +14,26 @@ export default function Navbar() {
   const navRef = useRef(null);
   const sidebarRef = useRef(null);
   const menuLinksRef = useRef([]);
+  const logoRef = useRef(null);
 
-  // Animate navbar appearance
+  // Animate navbar entrance
   useEffect(() => {
-    gsap.from(navRef.current, {
-      y: -80,
+    const tl = gsap.timeline();
+    tl.from(navRef.current, {
+      y: -100,
       opacity: 0,
-      duration: 0.8,
-      ease: "power3.out",
-    });
+      duration: 1,
+      ease: "power4.out",
+    }).from(
+      logoRef.current,
+      {
+        y: -20,
+        opacity: 0,
+        duration: 0.8,
+        ease: "back.out(1.7)",
+      },
+      "-=0.5"
+    );
   }, []);
 
   // Animate mobile sidebar
@@ -35,12 +48,12 @@ export default function Navbar() {
       });
       gsap.fromTo(
         menuLinksRef.current,
-        { opacity: 0, x: -15 },
-        { opacity: 1, x: 0, duration: 0.4, stagger: 0.08, ease: "power3.out" }
+        { opacity: 0, x: -20 },
+        { opacity: 1, x: 0, duration: 0.4, stagger: 0.1, ease: "power3.out" }
       );
     } else {
       gsap.to(sidebarRef.current, {
-        x: "-100%",
+        x: "100%",
         opacity: 0,
         duration: 0.5,
         ease: "power3.in",
@@ -51,7 +64,7 @@ export default function Navbar() {
 
   // Navbar background on scroll
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -72,7 +85,7 @@ export default function Navbar() {
           if (entry.isIntersecting) setActiveSection(entry.target.id);
         });
       },
-      { threshold: 0.5, rootMargin: "-64px 0px 0px 0px" }
+      { threshold: 0.2, rootMargin: "-100px 0px 0px 0px" }
     );
 
     sections.forEach((id) => {
@@ -94,138 +107,112 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Navbar */}
-      <nav
-        ref={navRef}
-        className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-500 ${
-          isScrolled
-            ? "backdrop-blur-md bg-white/80 shadow-md"
-            : "bg-transparent"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
+      {/* Floating Navbar */}
+      <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
+        <nav
+          ref={navRef}
+          className={`
+            flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500
+            ${
+              isScrolled
+                ? "bg-white/70 backdrop-blur-xl shadow-lg border border-white/20 w-full max-w-5xl"
+                : "bg-transparent w-full max-w-7xl"
+            }
+          `}
+        >
           {/* Logo */}
-          <div className="text-2xl font-anton text-blue-700 flex items-center gap-2 cursor-pointer select-none">
-            <ImageSvg width={120} height={150} src="../Navlogo.png" />
+          <div
+            ref={logoRef}
+            className="flex items-center justify-center cursor-pointer select-none"
+          >
+           
+               <Image src="/Navlogo.png" width={100} height={10} />
+              
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6 font-antic font-bold">
+          <div className="hidden md:flex items-center gap-1 bg-white/50 backdrop-blur-md px-2 py-1.5 rounded-full border border-white/30 shadow-sm">
             {links.map((link) => (
               <Link
                 key={link.id}
                 href={`#${link.id}`}
-                className={`relative px-4 py-1 rounded-full transition-all duration-300 ${
-                  activeSection === link.id
-                    ? "bg-blue-600 text-white shadow-lg"
-                    : "text-blue-700 hover:text-blue-800"
-                }`}
-                onMouseEnter={(e) =>
-                  gsap.to(e.currentTarget, { scale: 1.08, duration: 0.2 })
-                }
-                onMouseLeave={(e) =>
-                  gsap.to(e.currentTarget, { scale: 1, duration: 0.2 })
-                }
+                className={`
+                  relative px-5 py-2 rounded-full text-sm font-antic font-bold tracking-wide transition-all duration-300
+                  ${
+                    activeSection === link.id
+                      ? "bg-blue-600 text-white shadow-md"
+                      : "text-gray-700 hover:text-blue-600 hover:bg-white/60"
+                  }
+                `}
               >
                 {link.label}
-                <span
-                  className={`absolute left-1/2 -bottom-1 w-0 h-[2px] bg-blue-600 rounded-full transition-all duration-300 ${
-                    activeSection === link.id
-                      ? "w-3/4 left-[12.5%]"
-                      : "group-hover:w-3/4 group-hover:left-[12.5%]"
-                  }`}
-                ></span>
               </Link>
             ))}
           </div>
 
-          {/* Mobile Button */}
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-            className="md:hidden focus:outline-none text-gray-800 hover:text-blue-600 transition"
+            className={`
+              md:hidden p-2 rounded-full transition-colors duration-300
+              ${isScrolled ? "bg-gray-100 text-gray-900" : "bg-white/80 text-gray-900"}
+            `}
           >
-            <svg
-              className="h-7 w-7"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {isOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-        </div>
-      </nav>
+        </nav>
+      </div>
 
-      {/* Overlay for mobile */}
+      {/* Mobile Sidebar Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 md:hidden"
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 md:hidden"
           onClick={() => setIsOpen(false)}
-        ></div>
+        />
       )}
 
       {/* Mobile Sidebar */}
       <aside
         ref={sidebarRef}
-        className="fixed top-0 left-0 bottom-0 w-64 bg-white/95 shadow-2xl z-50 transform -translate-x-full opacity-0 md:hidden rounded-r-2xl"
+        className="fixed top-0 right-0 bottom-0 w-[280px] bg-white/95 backdrop-blur-xl shadow-2xl z-50 transform translate-x-full hidden md:hidden border-l border-white/20"
       >
-        <div className="flex flex-col h-full">
-          {/* Header */}
-          <div className="flex justify-between items-center p-4 border-b border-gray-200">
-            <span className="text-2xl font-anton text-blue-700">Menu</span>
+        <div className="flex flex-col h-full p-6">
+          <div className="flex justify-between items-center mb-8">
+            <span className="text-2xl font-anton-sc text-blue-600">MENU</span>
             <button
               onClick={() => setIsOpen(false)}
-              className="focus:outline-none text-gray-700 hover:text-blue-600 transition"
+              className="p-2 hover:bg-gray-100 rounded-full transition-colors"
             >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <X size={24} className="text-gray-600" />
             </button>
           </div>
 
-          {/* Sidebar Links */}
-          <nav className="flex-grow px-6 py-6 space-y-4 font-antic font-bold overflow-y-auto">
+          <nav className="flex flex-col gap-2">
             {links.map((link, i) => (
               <Link
                 key={link.id}
                 ref={(el) => (menuLinksRef.current[i] = el)}
                 href={`#${link.id}`}
                 onClick={() => setIsOpen(false)}
-                className={`block text-lg px-3 py-2 rounded-lg ${
-                  activeSection === link.id
-                    ? "bg-blue-600 text-white"
-                    : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
-                }`}
+                className={`
+                  text-lg font-antic font-bold px-4 py-3 rounded-xl transition-all duration-300
+                  ${
+                    activeSection === link.id
+                      ? "bg-blue-50 text-blue-600 translate-x-2"
+                      : "text-gray-600 hover:bg-gray-50 hover:text-blue-600"
+                  }
+                `}
               >
                 {link.label}
               </Link>
             ))}
           </nav>
+
+          <div className="mt-auto pt-8 border-t border-gray-100">
+             <p className="text-xs text-center text-gray-400 font-antic">
+                © 2024 Portfolio. All rights reserved.
+             </p>
+          </div>
         </div>
       </aside>
     </>

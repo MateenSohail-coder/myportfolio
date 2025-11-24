@@ -46,8 +46,7 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
           rel="icon"
-          type="image/jpeg"
-          href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDw0NDQ0ODQ0NDhANDQ4NEBsNDg8NFRIXIhURHxkYHiggGBwlGxUfIT0hJTUuLjEuFx8/Oz84Qyk5OisBCgoKDg0OGxAPGisgHyUtLTcvLTItLS0zKzQtLTcrNy0tKystNy01NS0tLTIrNS0tLS0rKy4rNzUrKy0tLS00K//AABEIAKYBMAMBIgACEQEDEQH..."
+          href="/logo.png"
         />
         <meta name="theme-color" content="#0a0a0a" />
       </head>

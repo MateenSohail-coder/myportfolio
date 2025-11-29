@@ -22,17 +22,6 @@ const projects = [
     premium: true,
   },
   {
-    title: "Photographer Portfolio",
-    description:
-      "A visually stunning portfolio website designed for photographers. Showcases work through dynamic galleries, smooth transitions, and a modern aesthetic that puts the visual content front and center.",
-    image: "/photographer.png",
-    color: "#CCCCCC",
-    link: "https://jassicaphotograpy.vercel.app/",
-    github: "https://github.com/MateenSohail-coder/Jassicaphotograpy.git",
-    tags: ["Next.js", "React", "Tailwind", "Framer Motion"],
-    premium: false,
-  },
-  {
     title: "Linkhub",
     description:
       "A comprehensive link management platform. Users can create personalized link pages with custom themes. Features robust authentication, dashboard analytics, and a user-friendly interface.",

@@ -27,7 +27,7 @@ const projects = [
       "A comprehensive link management platform. Users can create personalized link pages with custom themes. Features robust authentication, dashboard analytics, and a user-friendly interface.",
     image: "/linkhub.png",
     color: "#0D47A1",
-    link: "https://linkhub-mauve-six.vercel.app/",
+    link: "https://linkhub-links.vercel.app/",
     github: "https://github.com/MateenSohail-coder/linkhub.git",
     tags: ["MERN Stack", "MongoDB", "Express", "Node.js"],
     premium: true,

@@ -149,19 +149,24 @@ export default function About() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
           {/* Left Column: Image & Stats */}
-          <div className="col-span-1 md:col-span-5 lg:col-span-4 flex flex-col gap-8" ref={imageRef}>
+          <div
+            className="col-span-1 md:col-span-5 lg:col-span-4 flex flex-col gap-8"
+            ref={imageRef}
+          >
             <div className="relative group max-w-sm mx-auto md:max-w-none w-full">
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-2xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500 opacity-20" />
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/5]">
                 <Image
-                  src="/am.jpg"
+                  src="/about.avif"
                   alt="Abdul Mateen"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                  <p className="text-white font-antonio text-xl">Web Developer</p>
+                  <p className="text-white font-antonio text-xl">
+                    Web Developer
+                  </p>
                 </div>
               </div>
             </div>
@@ -187,7 +192,10 @@ export default function About() {
           </div>
 
           {/* Right Column: Content & Tabs */}
-          <div className="col-span-1 md:col-span-7 lg:col-span-8 w-full" ref={contentRef}>
+          <div
+            className="col-span-1 md:col-span-7 lg:col-span-8 w-full"
+            ref={contentRef}
+          >
             {/* Tabs Navigation */}
             <div className="flex overflow-x-auto pb-2 md:pb-0 gap-2 mb-6 md:mb-8 bg-white/50 backdrop-blur-sm p-2 rounded-full border border-gray-200 w-full md:w-fit scrollbar-hide">
               {Object.keys(aboutData).map((tab) => (

@@ -129,7 +129,10 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center relative z-10">
         {/* Text Content */}
-        <div ref={textContainerRef} className="text-center md:text-left order-2 md:order-1">
+        <div
+          ref={textContainerRef}
+          className="text-center md:text-left order-2 md:order-1"
+        >
           <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm tracking-wide uppercase">
             Available for work
           </div>
@@ -140,16 +143,17 @@ export default function Hero() {
             </span>
           </h1>
           <div className="h-12 mb-6">
-             <p className="text-2xl md:text-3xl font-antonio text-gray-600">
-              I am a <span className="text-blue-600 font-bold">{displayText}</span>
+            <p className="text-2xl md:text-3xl font-antonio text-gray-600">
+              I am a{" "}
+              <span className="text-blue-600 font-bold">{displayText}</span>
               <span className="animate-pulse text-blue-600">|</span>
             </p>
           </div>
           <p className="text-gray-600 text-lg md:text-xl max-w-lg mx-auto md:mx-0 mb-8 leading-relaxed font-antic">
-            Crafting exceptional digital experiences with modern technologies. 
-            I build scalable, responsive, and user-centric web applications.
+            Crafting exceptional digital experiences with modern technologies. I
+            build scalable, responsive, and user-centric web applications.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <button
               onClick={downloadCV}
@@ -160,43 +164,51 @@ export default function Hero() {
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </button>
-            
+
             <a
               href="#contact"
               className="px-8 py-3.5 bg-white text-gray-800 border border-gray-200 rounded-full font-bold shadow-sm hover:bg-gray-50 hover:border-gray-300 transition-all duration-300 flex items-center justify-center gap-2 group"
             >
               Contact Me
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight
+                size={20}
+                className="group-hover:translate-x-1 transition-transform"
+              />
             </a>
           </div>
         </div>
 
         {/* Image Content */}
-        <div ref={imageContainerRef} className="order-1 md:order-2 flex justify-center relative">
-            <div className="relative w-[280px] h-[280px] md:w-[450px] md:h-[450px]">
-                {/* Decorative Circle behind */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-purple-100 rounded-full" />
-                
-                {/* Image Wrapper with Glassmorphism Border */}
-                <div className="absolute inset-2 bg-white/30 backdrop-blur-sm rounded-full border border-white/50 shadow-2xl overflow-hidden z-10">
-                     <Image
-                        src="/mypic.png"
-                        alt="Abdul Mateen"
-                        fill
-                        className="object-cover hover:scale-105 transition-transform duration-700"
-                        priority
-                    />
-                </div>
+        <div
+          ref={imageContainerRef}
+          className="order-1 md:order-2 flex justify-center relative"
+        >
+          <div className="relative w-[280px] h-[280px] md:w-[450px] md:h-[450px]">
+            {/* Decorative Circle behind */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-purple-100 rounded-full" />
 
-                {/* Floating Badges */}
-                <div className="floating-badge absolute -top-4 -right-4 bg-white p-3 rounded-2xl shadow-xl z-20">
-                    <span className="text-2xl">🚀</span>
-                </div>
-                <div className="floating-badge absolute bottom-8 -left-8 bg-white px-4 py-2 rounded-xl shadow-xl z-20 flex items-center gap-2">
-                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                    <span className="font-bold text-sm text-gray-700">Open to work</span>
-                </div>
+            {/* Image Wrapper with Glassmorphism Border */}
+            <div className="absolute inset-2 bg-white/30 backdrop-blur-sm rounded-full border border-white/50 shadow-2xl overflow-hidden z-10">
+              <Image
+                src="/Me.avif"
+                alt="Abdul Mateen"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-700"
+                priority
+              />
             </div>
+
+            {/* Floating Badges */}
+            <div className="floating-badge absolute -top-4 -right-4 bg-white p-3 rounded-2xl shadow-xl z-20">
+              <span className="text-2xl">🚀</span>
+            </div>
+            <div className="floating-badge absolute bottom-8 -left-8 bg-white px-4 py-2 rounded-xl shadow-xl z-20 flex items-center gap-2">
+              <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+              <span className="font-bold text-sm text-gray-700">
+                Open to work
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

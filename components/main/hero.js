@@ -106,7 +106,7 @@ export default function Hero() {
 
   const downloadCV = () => {
     const link = document.createElement("a");
-    link.href = "/CV.pdf";
+    link.href = "/A-Mateen's_CV.pdf";
     link.download = "Abdul_Mateen_CV.pdf";
     link.click();
   };

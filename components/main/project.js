@@ -32,17 +32,6 @@ const projects = [
     tags: ["MERN Stack", "MongoDB", "Express", "Node.js"],
     premium: true,
   },
-  {
-    title: "Weather App",
-    description:
-      "A sleek weather application delivering real-time forecasts. Utilizes the OpenWeather API to provide accurate data with a clean, minimalist UI that adapts to current weather conditions.",
-    image: "/weather.png",
-    color: "#6A0DAD",
-    link: "https://weather-app-alpha-orcin-37.vercel.app/",
-    github: "https://github.com/MateenSohail-coder/Weather_App.git",
-    tags: ["React", "Tailwind", "Axios", "OpenWeather API"],
-    premium: false,
-  },
 ];
 
 export default function Project() {

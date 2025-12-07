@@ -178,7 +178,7 @@ export default function Contact() {
                 <div>
                   <p className="text-sm text-gray-500 font-bold uppercase tracking-wider">Location</p>
                   <p className="text-xl font-bold text-gray-900">
-                    Lahore / Pakistan
+                   subcontinent.
                   </p>
                 </div>
               </div>

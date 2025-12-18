@@ -190,7 +190,7 @@ export default function Hero() {
             {/* Image Wrapper with Glassmorphism Border */}
             <div className="absolute inset-2 bg-white/30 backdrop-blur-sm rounded-full border border-white/50 shadow-2xl overflow-hidden z-10">
               <Image
-                src="/Me.avif"
+                src="/Im.jpeg"
                 alt="Abdul Mateen"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"

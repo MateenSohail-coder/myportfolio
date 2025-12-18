@@ -132,7 +132,6 @@ export default function Contact() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          
           {/* Left Side: Contact Info */}
           <div ref={infoRef} className="space-y-10">
             <div>
@@ -141,7 +140,9 @@ export default function Contact() {
                 <span className="text-blue-600">Together</span>
               </h2>
               <p className="text-lg text-gray-600 font-antic max-w-md leading-relaxed">
-                Have a project in mind or just want to say hi? I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+                Have a project in mind or just want to say hi? I&apos;m always
+                open to discussing new projects, creative ideas, or
+                opportunities to be part of your visions.
               </p>
             </div>
 
@@ -151,10 +152,12 @@ export default function Contact() {
                   <Mail size={24} />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500 font-bold uppercase tracking-wider">Email</p>
+                  <p className="text-sm text-gray-500 font-bold uppercase tracking-wider">
+                    Email
+                  </p>
                   <a
-  href="mailto:abdulmateensohailking@gmail.com"
-  className="
+                    href="mailto:abdulmateensohailking@gmail.com"
+                    className="
     text-lg
     sm:text-xl
     md:text-2xl
@@ -164,10 +167,9 @@ export default function Contact() {
     hover:text-blue-600
     transition-colors
   "
->
-  abdulmateensohailking@gmail.com
-</a>
-
+                  >
+                    abdulmateensohailking@gmail.com
+                  </a>
                 </div>
               </div>
 
@@ -176,16 +178,20 @@ export default function Contact() {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500 font-bold uppercase tracking-wider">Location</p>
+                  <p className="text-sm text-gray-500 font-bold uppercase tracking-wider">
+                    Location
+                  </p>
                   <p className="text-xl font-bold text-gray-900">
-                   subcontinent.
+                    Lahore - Pakistan
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="pt-8 border-t border-gray-200">
-              <p className="text-sm text-gray-500 font-bold uppercase tracking-wider mb-4">Socials</p>
+              <p className="text-sm text-gray-500 font-bold uppercase tracking-wider mb-4">
+                Socials
+              </p>
               <SocialButtons />
             </div>
           </div>
@@ -197,42 +203,66 @@ export default function Contact() {
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-700 uppercase tracking-wider">Name</label>
+                <label className="text-sm font-bold text-gray-700 uppercase tracking-wider">
+                  Name
+                </label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className={`w-full bg-white border ${errors.name ? 'border-red-500' : 'border-gray-200'} rounded-xl px-4 py-3.5 text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-300`}
+                  className={`w-full bg-white border ${
+                    errors.name ? "border-red-500" : "border-gray-200"
+                  } rounded-xl px-4 py-3.5 text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-300`}
                   placeholder="John Doe"
                 />
-                {errors.name && <p className="text-red-500 text-xs font-bold">{errors.name}</p>}
+                {errors.name && (
+                  <p className="text-red-500 text-xs font-bold">
+                    {errors.name}
+                  </p>
+                )}
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-700 uppercase tracking-wider">Email</label>
+                <label className="text-sm font-bold text-gray-700 uppercase tracking-wider">
+                  Email
+                </label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className={`w-full bg-white border ${errors.email ? 'border-red-500' : 'border-gray-200'} rounded-xl px-4 py-3.5 text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-300`}
+                  className={`w-full bg-white border ${
+                    errors.email ? "border-red-500" : "border-gray-200"
+                  } rounded-xl px-4 py-3.5 text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-300`}
                   placeholder="john@example.com"
                 />
-                {errors.email && <p className="text-red-500 text-xs font-bold">{errors.email}</p>}
+                {errors.email && (
+                  <p className="text-red-500 text-xs font-bold">
+                    {errors.email}
+                  </p>
+                )}
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-700 uppercase tracking-wider">Message</label>
+                <label className="text-sm font-bold text-gray-700 uppercase tracking-wider">
+                  Message
+                </label>
                 <textarea
                   name="message"
                   rows="4"
                   value={formData.message}
                   onChange={handleInputChange}
-                  className={`w-full bg-white border ${errors.message ? 'border-red-500' : 'border-gray-200'} rounded-xl px-4 py-3.5 text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-300 resize-none`}
+                  className={`w-full bg-white border ${
+                    errors.message ? "border-red-500" : "border-gray-200"
+                  } rounded-xl px-4 py-3.5 text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-300 resize-none`}
                   placeholder="Tell me about your project..."
                 />
-                {errors.message && <p className="text-red-500 text-xs font-bold">{errors.message}</p>}
+                {errors.message && (
+                  <p className="text-red-500 text-xs font-bold">
+                    {errors.message}
+                  </p>
+                )}
               </div>
 
               <button
@@ -251,17 +281,18 @@ export default function Contact() {
               </button>
 
               {submitMessage && (
-                <div className={`p-4 rounded-xl text-center text-sm font-bold ${
-                  submitMessage.includes("✅") 
-                    ? "bg-green-50 text-green-600 border border-green-100" 
-                    : "bg-red-50 text-red-600 border border-red-100"
-                }`}>
+                <div
+                  className={`p-4 rounded-xl text-center text-sm font-bold ${
+                    submitMessage.includes("✅")
+                      ? "bg-green-50 text-green-600 border border-green-100"
+                      : "bg-red-50 text-red-600 border border-red-100"
+                  }`}
+                >
                   {submitMessage}
                 </div>
               )}
             </form>
           </div>
-
         </div>
       </div>
     </section>

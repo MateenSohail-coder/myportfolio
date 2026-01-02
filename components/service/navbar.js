@@ -6,8 +6,13 @@ import { gsap } from "gsap";
 import ImageSvg from "../svgs/logo";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+
+import { useTheme } from "next-themes";
 
 export default function Navbar() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
@@ -15,6 +20,10 @@ export default function Navbar() {
   const sidebarRef = useRef(null);
   const menuLinksRef = useRef([]);
   const logoRef = useRef(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Animate navbar entrance
   useEffect(() => {
@@ -115,7 +124,7 @@ export default function Navbar() {
             flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500
             ${
               isScrolled
-                ? "bg-white/70 backdrop-blur-xl shadow-lg border border-white/20 w-full max-w-5xl"
+                ? "bg-background/70 backdrop-blur-xl shadow-lg border border-border w-full max-w-5xl"
                 : "bg-transparent w-full max-w-7xl"
             }
           `}
@@ -125,23 +134,30 @@ export default function Navbar() {
             ref={logoRef}
             className="flex items-center justify-center cursor-pointer select-none"
           >
-           
-               <Image src="/Navlogo.png" alt="logo" width={100} height={10} />
-              
+            {mounted ? (
+              <Image
+                src={resolvedTheme === "dark" ? "/dlogo.png" : "/Navlogo.png"}
+                alt="logo"
+                width={100}
+                height={10}
+              />
+            ) : (
+              <div className="w-[100px] h-[10px]" /> /* Placeholder to prevent layout shift */
+            )}
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-1 bg-white/50 backdrop-blur-md px-2 py-1.5 rounded-full border border-white/30 shadow-sm">
+          <div className="hidden md:flex items-center gap-1 bg-background/50 backdrop-blur-md px-2 py-1.5 rounded-full border border-white/10 shadow-sm">
             {links.map((link) => (
               <Link
                 key={link.id}
                 href={`#${link.id}`}
                 className={`
-                  relative px-5 py-2 rounded-full text-sm font-antic font-bold tracking-wide transition-all duration-300
+                  relative px-5 py-2 gfont rounded-full text-sm font-extralight tracking-wide transition-all duration-300
                   ${
                     activeSection === link.id
-                      ? "bg-blue-600 text-white shadow-md"
-                      : "text-gray-700 hover:text-blue-600 hover:bg-white/60"
+                      ? "bg-primary text-primary-foreground shadow-md"
+                      : "text-muted-foreground hover:text-primary hover:bg-primary/10"
                   }
                 `}
               >
@@ -150,16 +166,27 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={`
-              md:hidden p-2 rounded-full transition-colors duration-300
-              ${isScrolled ? "bg-gray-100 text-gray-900" : "bg-white/80 text-gray-900"}
-            `}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Theme Toggle & Mobile Menu */}
+          <div className="flex items-center gap-4 md:gap-0">
+            <div className="md:mr-4">
+              <ThemeToggle />
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={`
+                md:hidden p-2 rounded-full transition-colors duration-300
+                ${
+                  isScrolled
+                    ? "bg-gray-100 dark:bg-neutral-800 text-gray-900 dark:text-gray-100"
+                    : "bg-white/80 dark:bg-black/80 text-gray-900 dark:text-gray-100"
+                }
+              `}
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </nav>
       </div>
 
@@ -174,16 +201,16 @@ export default function Navbar() {
       {/* Mobile Sidebar */}
       <aside
         ref={sidebarRef}
-        className="fixed top-0 right-0 bottom-0 w-[280px] bg-white/95 backdrop-blur-xl shadow-2xl z-50 transform translate-x-full hidden md:hidden border-l border-white/20"
+        className="fixed top-0 right-0 bottom-0 w-[280px] bg-background/95 backdrop-blur-xl shadow-2xl z-50 transform translate-x-full hidden md:hidden border-l border-border"
       >
         <div className="flex flex-col h-full p-6">
           <div className="flex justify-between items-center mb-8">
-            <span className="text-2xl font-anton-sc text-blue-600">MENU</span>
+            <span className="text-2xl gfont text-primary ">MENU</span>
             <button
               onClick={() => setIsOpen(false)}
-              className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+              className="p-2 hover:bg-accent rounded-full transition-colors"
             >
-              <X size={24} className="text-gray-600" />
+              <X size={24} className="text-muted-foreground" />
             </button>
           </div>
 
@@ -195,11 +222,11 @@ export default function Navbar() {
                 href={`#${link.id}`}
                 onClick={() => setIsOpen(false)}
                 className={`
-                  text-lg font-antic font-bold px-4 py-3 rounded-xl transition-all duration-300
+                  text-lg gfont font-extralight px-4 py-3 rounded-xl transition-all duration-300
                   ${
                     activeSection === link.id
-                      ? "bg-blue-50 text-blue-600 translate-x-2"
-                      : "text-gray-600 hover:bg-gray-50 hover:text-blue-600"
+                      ? "bg-primary/10 text-primary translate-x-2"
+                      : "text-muted-foreground hover:bg-accent hover:text-primary"
                   }
                 `}
               >
@@ -208,10 +235,10 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="mt-auto pt-8 border-t border-gray-100">
-             <p className="text-xs text-center text-gray-400 font-antic">
-                © 2024 Portfolio. All rights reserved.
-             </p>
+          <div className="mt-auto pt-8 border-t border-border">
+            <p className="text-xs text-center text-muted-foreground font-antic">
+              © 2024 Portfolio. All rights reserved.
+            </p>
           </div>
         </div>
       </aside>

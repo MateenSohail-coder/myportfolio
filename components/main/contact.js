@@ -122,12 +122,12 @@ export default function Contact() {
     <section
       id="contact"
       ref={sectionRef}
-      className="py-24 bg-gradient-to-b from-blue-50 to-white relative overflow-hidden scroll-mt-20"
+      className="py-24 bg-background relative overflow-hidden scroll-mt-20"
     >
       {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-[-10%] w-[500px] h-[500px] bg-blue-200/20 rounded-full blur-[100px]" />
-        <div className="absolute bottom-20 right-[-10%] w-[500px] h-[500px] bg-purple-200/20 rounded-full blur-[100px]" />
+        <div className="absolute top-20 left-[-10%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px]" />
+        <div className="absolute bottom-20 right-[-10%] w-[500px] h-[500px] bg-accent/20 rounded-full blur-[100px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -135,11 +135,11 @@ export default function Contact() {
           {/* Left Side: Contact Info */}
           <div ref={infoRef} className="space-y-10">
             <div>
-              <h2 className="text-5xl md:text-6xl font-anton-sc font-extrabold text-gray-900 mb-6">
+              <h2 className="text-5xl gfont md:text-6xl  font-extrabold text-foreground mb-6">
                 Let&apos;s Work <br />
-                <span className="text-blue-600">Together</span>
+                <span className="text-primary">Together</span>
               </h2>
-              <p className="text-lg text-gray-600 font-antic max-w-md leading-relaxed">
+              <p className="text-lg text-muted-foreground font-antic max-w-md leading-relaxed">
                 Have a project in mind or just want to say hi? I&apos;m always
                 open to discussing new projects, creative ideas, or
                 opportunities to be part of your visions.
@@ -148,11 +148,11 @@ export default function Contact() {
 
             <div className="space-y-6">
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 bg-white rounded-full shadow-sm border border-gray-100 flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 bg-card rounded-full shadow-sm border border-border flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
                   <Mail size={24} />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500 font-bold uppercase tracking-wider">
+                  <p className="text-sm text-muted-foreground font-bold uppercase tracking-wider">
                     Email
                   </p>
                   <a
@@ -162,9 +162,9 @@ export default function Contact() {
     sm:text-xl
     md:text-2xl
     font-semibold
-    text-gray-900
+    text-foreground
     break-all
-    hover:text-blue-600
+    hover:text-primary
     transition-colors
   "
                   >
@@ -174,22 +174,22 @@ export default function Contact() {
               </div>
 
               <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 bg-white rounded-full shadow-sm border border-gray-100 flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 bg-card rounded-full shadow-sm border border-border flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500 font-bold uppercase tracking-wider">
+                  <p className="text-sm text-muted-foreground font-bold uppercase tracking-wider">
                     Location
                   </p>
-                  <p className="text-xl font-bold text-gray-900">
+                  <p className="text-xl font-bold text-foreground">
                     Lahore - Pakistan
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="pt-8 border-t border-gray-200">
-              <p className="text-sm text-gray-500 font-bold uppercase tracking-wider mb-4">
+            <div className="pt-8 border-t border-border">
+              <p className="text-sm text-muted-foreground font-bold uppercase tracking-wider mb-4">
                 Socials
               </p>
               <SocialButtons />
@@ -199,21 +199,22 @@ export default function Contact() {
           {/* Right Side: Contact Form */}
           <div
             ref={formRef}
-            className="bg-white/80 backdrop-blur-xl border border-white/50 rounded-3xl p-8 md:p-10 shadow-[0_0_50px_rgba(0,0,0,0.05)]"
+            className="bg-card/80 backdrop-blur-xl border border-white/50 dark:border-white/10 rounded-3xl p-8 md:p-10 shadow-[0_0_50px_rgba(0,0,0,0.05)]"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-700 uppercase tracking-wider">
+                <label className="text-sm font-bold text-foreground uppercase tracking-wider">
                   Name
                 </label>
                 <input
                   type="text"
                   name="name"
+                  suppressHydrationWarning={true}
                   value={formData.name}
                   onChange={handleInputChange}
-                  className={`w-full bg-white border ${
-                    errors.name ? "border-red-500" : "border-gray-200"
-                  } rounded-xl px-4 py-3.5 text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-300`}
+                  className={`w-full bg-background border ${
+                    errors.name ? "border-red-500" : "border-border"
+                  } rounded-xl px-4 py-3.5 text-foreground focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all duration-300`}
                   placeholder="John Doe"
                 />
                 {errors.name && (
@@ -224,17 +225,18 @@ export default function Contact() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-700 uppercase tracking-wider">
+                <label className="text-sm font-bold text-foreground uppercase tracking-wider">
                   Email
                 </label>
                 <input
                   type="email"
                   name="email"
+                  suppressHydrationWarning={true}
                   value={formData.email}
                   onChange={handleInputChange}
-                  className={`w-full bg-white border ${
-                    errors.email ? "border-red-500" : "border-gray-200"
-                  } rounded-xl px-4 py-3.5 text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-300`}
+                  className={`w-full bg-background border ${
+                    errors.email ? "border-red-500" : "border-border"
+                  } rounded-xl px-4 py-3.5 text-foreground focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all duration-300`}
                   placeholder="john@example.com"
                 />
                 {errors.email && (
@@ -245,17 +247,18 @@ export default function Contact() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-700 uppercase tracking-wider">
+                <label className="text-sm font-bold text-foreground uppercase tracking-wider">
                   Message
                 </label>
                 <textarea
                   name="message"
                   rows="4"
+                  suppressHydrationWarning={true}
                   value={formData.message}
                   onChange={handleInputChange}
-                  className={`w-full bg-white border ${
-                    errors.message ? "border-red-500" : "border-gray-200"
-                  } rounded-xl px-4 py-3.5 text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-300 resize-none`}
+                  className={`w-full bg-background border ${
+                    errors.message ? "border-red-500" : "border-border"
+                  } rounded-xl px-4 py-3.5 text-foreground focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all duration-300 resize-none`}
                   placeholder="Tell me about your project..."
                 />
                 {errors.message && (
@@ -269,15 +272,46 @@ export default function Contact() {
                 ref={buttonRef}
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-blue-600/30 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold py-4 rounded-2xl shadow-[0_10px_20px_rgba(var(--primary),0.3)] hover:shadow-[0_20px_40px_rgba(var(--primary),0.5)] transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed group/btn overflow-hidden relative"
+                onMouseEnter={() => {
+                  gsap.to(buttonRef.current, {
+                    scale: 1.05,
+                    duration: 0.5,
+                    ease: "elastic.out(1, 0.3)",
+                  });
+                }}
+                onMouseLeave={() => {
+                  gsap.to(buttonRef.current, {
+                    scale: 1,
+                    duration: 0.5,
+                    ease: "elastic.out(1, 0.3)",
+                  });
+                }}
+                onMouseDown={() => {
+                  gsap.to(buttonRef.current, { scale: 0.95, duration: 0.1 });
+                }}
+                onMouseUp={() => {
+                  gsap.to(buttonRef.current, {
+                    scale: 1.05,
+                    duration: 0.5,
+                    ease: "elastic.out(1, 0.3)",
+                  });
+                }}
               >
-                {isSubmitting ? (
-                  "Sending..."
-                ) : (
-                  <>
-                    Send Message <Send size={18} />
-                  </>
-                )}
+                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500 rounded-2xl" />
+                <span className="relative z-10 flex items-center gap-2">
+                  {isSubmitting ? (
+                    "Sending..."
+                  ) : (
+                    <>
+                      Send Message{" "}
+                      <Send
+                        size={20}
+                        className="group-hover/btn:rotate-12 transition-transform duration-300 ease-in-out"
+                      />
+                    </>
+                  )}
+                </span>
               </button>
 
               {submitMessage && (

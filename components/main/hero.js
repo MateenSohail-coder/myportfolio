@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { Download, ArrowRight } from "lucide-react";
+import { Download, ArrowRight, Rocket } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,11 +20,11 @@ export default function Hero() {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const phrases = [
-    "Web Developer",
-    "Frontend Specialist",
-    "Backend Engineer",
-    "UI/UX Enthusiast",
-    "Problem Solver",
+    "ReactJs Developer",
+    "Frontend Developer",
+    "NextJs Developer",
+    "Simple UI/UX Designer",
+    "Backend Developer",
   ];
 
   // Typewriter Effect
@@ -41,7 +41,10 @@ export default function Hero() {
       timeout = setTimeout(
         () => {
           setDisplayText(
-            currentPhrase.substring(0, displayText.length + (isDeleting ? -1 : 1))
+            currentPhrase.substring(
+              0,
+              displayText.length + (isDeleting ? -1 : 1)
+            )
           );
         },
         isDeleting ? 50 : 100
@@ -61,8 +64,18 @@ export default function Hero() {
       const x = (clientX / window.innerWidth - 0.5) * 20;
       const y = (clientY / window.innerHeight - 0.5) * 20;
 
-      gsap.to(bgShape1Ref.current, { x: x * 2, y: y * 2, duration: 1, ease: "power2.out" });
-      gsap.to(bgShape2Ref.current, { x: -x, y: -y, duration: 1, ease: "power2.out" });
+      gsap.to(bgShape1Ref.current, {
+        x: x * 2,
+        y: y * 2,
+        duration: 1,
+        ease: "power2.out",
+      });
+      gsap.to(bgShape2Ref.current, {
+        x: -x,
+        y: -y,
+        duration: 1,
+        ease: "power2.out",
+      });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -74,7 +87,7 @@ export default function Hero() {
       repeat: -1,
       yoyo: true,
       ease: "sine.inOut",
-      stagger: 0.5
+      stagger: 0.5,
     });
 
     // Entrance Animations
@@ -101,7 +114,7 @@ export default function Hero() {
         "-=0.8"
       );
 
-      return () => window.removeEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   const downloadCV = () => {
@@ -115,16 +128,16 @@ export default function Hero() {
     <section
       id="hero"
       ref={heroRef}
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden pt-40 md:pt-20"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-40 md:pt-20"
     >
       {/* Background Shapes */}
       <div
         ref={bgShape1Ref}
-        className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-blue-200/30 rounded-full blur-3xl"
+        className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-3xl"
       />
       <div
         ref={bgShape2Ref}
-        className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-purple-200/30 rounded-full blur-3xl"
+        className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-accent/20 rounded-full blur-3xl"
       />
 
       <div className="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center relative z-10">
@@ -133,23 +146,23 @@ export default function Hero() {
           ref={textContainerRef}
           className="text-center md:text-left order-2 md:order-1"
         >
-          <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm tracking-wide uppercase">
+          <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-primary/10 text-primary font-semibold text-sm tracking-wide uppercase">
             Available for work
           </div>
-          <h1 className="text-5xl md:text-7xl font-anton-sc font-extrabold text-gray-900 leading-tight mb-4">
+          <h1 className="text-5xl  md:text-7xl gfont font-extrabold text-foreground leading-tight mb-4">
             Hi, I&apos;m <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-900">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60">
               Abdul Mateen
             </span>
           </h1>
           <div className="h-12 mb-6">
-            <p className="text-2xl md:text-3xl font-antonio text-gray-600">
+            <p className="text-2xl md:text-3xl font-antonio text-muted-foreground">
               I am a{" "}
-              <span className="text-blue-600 font-bold">{displayText}</span>
-              <span className="animate-pulse text-blue-600">|</span>
+              <span className="text-primary font-bold">{displayText}</span>
+              <span className="animate-pulse text-primary">|</span>
             </p>
           </div>
-          <p className="text-gray-600 text-lg md:text-xl max-w-lg mx-auto md:mx-0 mb-8 leading-relaxed font-antic">
+          <p className="text-muted-foreground text-lg md:text-xl max-w-lg mx-auto md:mx-0 mb-8 leading-relaxed font-antic">
             Crafting exceptional digital experiences with modern technologies. I
             build scalable, responsive, and user-centric web applications.
           </p>
@@ -157,17 +170,17 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <button
               onClick={downloadCV}
-              className="group relative px-8 py-3.5 bg-blue-600 text-white rounded-full font-bold shadow-lg hover:bg-blue-700 transition-all duration-300 hover:shadow-blue-500/30 flex items-center justify-center gap-2 overflow-hidden"
+              className="group relative px-8 py-3.5 bg-primary text-primary-foreground rounded-full font-bold shadow-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-primary/30 flex items-center justify-center gap-2 overflow-hidden"
             >
               <span className="relative z-10 flex items-center gap-2">
                 <Download size={20} /> Download CV
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </button>
 
             <a
               href="#contact"
-              className="px-8 py-3.5 bg-white text-gray-800 border border-gray-200 rounded-full font-bold shadow-sm hover:bg-gray-50 hover:border-gray-300 transition-all duration-300 flex items-center justify-center gap-2 group"
+              className="px-8 py-3.5 bg-card text-foreground border border-border rounded-full font-bold shadow-sm hover:bg-accent hover:border-accent transition-all duration-300 flex items-center justify-center gap-2 group"
             >
               Contact Me
               <ArrowRight
@@ -185,10 +198,10 @@ export default function Hero() {
         >
           <div className="relative w-[280px] h-[280px] md:w-[450px] md:h-[450px]">
             {/* Decorative Circle behind */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-purple-100 rounded-full" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-accent/30 rounded-full" />
 
             {/* Image Wrapper with Glassmorphism Border */}
-            <div className="absolute inset-2 bg-white/30 backdrop-blur-sm rounded-full border border-white/50 shadow-2xl overflow-hidden z-10">
+            <div className="absolute inset-2 bg-card/30 backdrop-blur-sm rounded-full border border-white/50 dark:border-white/10 shadow-2xl overflow-hidden z-10">
               <Image
                 src="/Im.jpeg"
                 alt="Abdul Mateen"
@@ -199,12 +212,14 @@ export default function Hero() {
             </div>
 
             {/* Floating Badges */}
-            <div className="floating-badge absolute -top-4 -right-4 bg-white p-3 rounded-2xl shadow-xl z-20">
-              <span className="text-2xl">🚀</span>
+            <div className="floating-badge absolute -top-5 -right-4 bg-card p-3 rounded-full shadow-xl z-20 border border-border">
+              <span className="text-2xl">
+                <Rocket color="#154fac" size={30} />
+              </span>
             </div>
-            <div className="floating-badge absolute bottom-8 -left-8 bg-white px-4 py-2 rounded-xl shadow-xl z-20 flex items-center gap-2">
+            <div className="floating-badge absolute bottom-8 -left-8 bg-card px-4 py-2 rounded-xl shadow-xl z-20 flex items-center gap-2 border border-border">
               <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-              <span className="font-bold text-sm text-gray-700">
+              <span className="font-bold text-sm text-foreground">
                 Open to work
               </span>
             </div>

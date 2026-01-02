@@ -18,33 +18,42 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   {
     title: "Web Development",
-    description: "Creating responsive and dynamic websites using modern technologies.",
-    icon: <Globe className="w-12 h-12 text-blue-600" />,
-    details: "I build fast, scalable web applications with React, Next.js, and Node.js. From e-commerce sites to complex web platforms, I ensure optimal performance and user experience.",
+    description:
+      "Creating responsive and dynamic websites using modern technologies.",
+    icon: <Globe className="w-12 h-12 text-primary" />,
+    details:
+      "I build fast, scalable web applications with React, Next.js, and Node.js. From e-commerce sites to complex web platforms, I ensure optimal performance and user experience.",
   },
   {
     title: "UI/UX Design",
-    description: "Designing intuitive and beautiful user interfaces and experiences.",
-    icon: <Palette className="w-12 h-12 text-purple-600" />,
-    details: "Crafting user-centered designs that are both aesthetically pleasing and functionally superior. I use Figma, Adobe XD, and prototyping tools to bring ideas to life.",
+    description:
+      "Designing intuitive and beautiful user interfaces and experiences.",
+    icon: <Palette className="w-12 h-12 text-primary" />,
+    details:
+      "Crafting user-centered designs that are both aesthetically pleasing and functionally superior. I use Figma, Adobe XD, and prototyping tools to bring ideas to life.",
   },
   {
     title: "Frontend Development",
     description: "Building interactive and engaging user interfaces.",
-    icon: <Code className="w-12 h-12 text-teal-600" />,
-    details: "Specializing in frontend technologies like React, Tailwind CSS, and GSAP to create seamless and dynamic user experiences that captivate users.",
+    icon: <Code className="w-12 h-12 text-primary" />,
+    details:
+      "Specializing in frontend technologies like React, Tailwind CSS, and GSAP to create seamless and dynamic user experiences that captivate users.",
   },
   {
     title: "Consulting",
-    description: "Providing expert advice on technology and development strategies.",
-    icon: <Lightbulb className="w-12 h-12 text-yellow-500" />,
-    details: "Offering strategic guidance on technology stack selection, architecture design, and development best practices. I help businesses optimize their digital presence.",
+    description:
+      "Providing expert advice on technology and development strategies.",
+    icon: <Lightbulb className="w-12 h-12 text-primary" />,
+    details:
+      "Offering strategic guidance on technology stack selection, architecture design, and development best practices. I help businesses optimize their digital presence.",
   },
   {
     title: "Portfolio Development",
-    description: "Creating personalized portfolios to showcase skills and projects.",
-    icon: <FolderOpen className="w-12 h-12 text-pink-600" />,
-    details: "I design and develop custom portfolios that highlight your unique skills and projects, ensuring you stand out to potential employers or clients.",
+    description:
+      "Creating personalized portfolios to showcase skills and projects.",
+    icon: <FolderOpen className="w-12 h-12 text-primary" />,
+    details:
+      "I design and develop custom portfolios that highlight your unique skills and projects, ensuring you stand out to potential employers or clients.",
   },
 ];
 
@@ -85,22 +94,23 @@ export default function Services() {
     <section
       id="services"
       ref={servicesRef}
-      className="py-24 bg-gradient-to-b from-blue-50 to-white relative overflow-hidden scroll-mt-28"
+      className="py-24 relative overflow-hidden scroll-mt-28"
     >
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-[-10%] w-[500px] h-[500px] bg-blue-100/50 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-[-10%] w-[500px] h-[500px] bg-purple-100/50 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-[-10%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-[-10%] w-[500px] h-[500px] bg-accent/20 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div ref={headerRef} className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-anton-sc font-extrabold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl gfont font-extrabold text-foreground mb-4">
             My Services
           </h2>
-          <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full" />
-          <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto font-antic">
-            I offer a comprehensive range of digital services to help bring your ideas to life.
+          <div className="w-24 h-1.5 bg-primary mx-auto rounded-full" />
+          <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto font-antic">
+            I offer a comprehensive range of digital services to help bring your
+            ideas to life.
           </p>
         </div>
 
@@ -113,30 +123,32 @@ export default function Services() {
             }}
             plugins={[Autoplay({ delay: 4000 })]}
           >
-            <CarouselContent className="-ml-4">
+            <CarouselContent className="-ml-4 py-4">
               {services.map((service, index) => (
-                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                <CarouselItem
+                  key={index}
+                  className="pl-4 md:basis-1/2 lg:basis-1/3"
+                >
                   <div className="service-card h-full group">
-                    <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 h-full border border-white/50 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col">
-                      <div className="mb-6 p-4 bg-gray-50 rounded-2xl w-fit group-hover:scale-110 transition-transform duration-500">
+                    <div className="bg-card/40 backdrop-blur-xl rounded-3xl p-8 h-full border border-white/20 dark:border-white/5 shadow-lg hover:shadow-primary/20 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 flex flex-col relative overflow-hidden">
+                      {/* Gradient Glow Effect on Hover */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                      <div className="mb-6 p-4 bg-primary/10 rounded-2xl w-fit group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-500 relative z-10">
                         {service.icon}
                       </div>
-                      
-                      <h3 className="text-2xl font-bold font-antonio text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+
+                      <h3 className="text-2xl gfont font-bold text-foreground mb-4 group-hover:text-primary transition-colors relative z-10">
                         {service.title}
                       </h3>
-                      
-                      <p className="text-gray-600 mb-6 font-medium">
+
+                      <p className="text-muted-foreground mb-6 font-medium relative z-10">
                         {service.description}
                       </p>
-                      
-                      <p className="text-sm text-gray-500 leading-relaxed mb-6 flex-grow">
+
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-grow relative z-10">
                         {service.details}
                       </p>
-
-                      <div className="pt-6 border-t border-gray-100 flex items-center text-blue-600 font-bold text-sm uppercase tracking-wider group-hover:gap-2 transition-all cursor-pointer">
-                        Learn More <ArrowRight size={16} className="ml-2" />
-                      </div>
                     </div>
                   </div>
                 </CarouselItem>
@@ -144,8 +156,8 @@ export default function Services() {
             </CarouselContent>
 
             <div className="flex justify-center gap-4 mt-12">
-              <CarouselPrevious className="static translate-y-0 bg-gray-300 border border-gray-200 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300 w-12 h-12" />
-              <CarouselNext className="static translate-y-0 bg-gray-300 border border-gray-200 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300 w-12 h-12" />
+              <CarouselPrevious className="static translate-y-0 bg-muted border border-border hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 w-12 h-12" />
+              <CarouselNext className="static translate-y-0 bg-muted border border-border hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 w-12 h-12" />
             </div>
           </Carousel>
         </div>

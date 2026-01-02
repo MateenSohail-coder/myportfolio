@@ -75,17 +75,18 @@ export default function Project() {
     <section
       id="projects"
       ref={sectionRef}
-      className="py-24 bg-gray-50 relative overflow-hidden scroll-mt-28"
+      className="py-24 relative overflow-hidden scroll-mt-20"
     >
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Title */}
         <div ref={headerRef} className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-anton-sc font-extrabold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl gfont font-extrabold text-foreground mb-4">
             Featured Projects
           </h2>
-          <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full" />
-          <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto font-antic">
-            A selection of my recent work, showcasing my technical skills and creative solutions.
+          <div className="w-24 h-1.5 bg-primary mx-auto rounded-full" />
+          <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto font-antic">
+            A selection of my recent work, showcasing my technical skills and
+            creative solutions.
           </p>
         </div>
 
@@ -100,8 +101,8 @@ export default function Project() {
             >
               {/* Image Side */}
               <div className="w-full md:w-1/2 group">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200 aspect-video bg-gray-100">
-                  <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border aspect-video bg-muted">
+                  <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -114,7 +115,7 @@ export default function Project() {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-white rounded-full text-gray-900 hover:text-blue-600 hover:scale-110 transition-all shadow-lg"
+                      className="p-3 bg-card rounded-full text-foreground hover:text-primary hover:scale-110 transition-all shadow-lg"
                       title="View Live"
                     >
                       <ExternalLink size={24} />
@@ -123,7 +124,7 @@ export default function Project() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-white rounded-full text-gray-900 hover:text-blue-600 hover:scale-110 transition-all shadow-lg"
+                      className="p-3 bg-card rounded-full text-foreground hover:text-primary hover:scale-110 transition-all shadow-lg"
                       title="View Code"
                     >
                       <Github size={24} />
@@ -135,10 +136,10 @@ export default function Project() {
               {/* Content Side */}
               <div className="w-full md:w-1/2 flex flex-col items-start">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-blue-600 font-bold font-anton-sc text-lg">
+                  <span className="text-primary font-bold font-anton-sc text-lg">
                     0{index + 1}
                   </span>
-                  <div className="h-px w-12 bg-blue-600" />
+                  <div className="h-px w-12 bg-primary" />
                   {project.premium && (
                     <Badge className="bg-yellow-400 text-yellow-900 hover:bg-yellow-500 border-none">
                       Premium
@@ -146,11 +147,11 @@ export default function Project() {
                   )}
                 </div>
 
-                <h3 className="text-3xl md:text-4xl font-bold font-antonio text-gray-900 mb-6">
+                <h3 className="text-3xl md:text-4xl font-bold font-antonio text-foreground mb-6">
                   {project.title}
                 </h3>
 
-                <p className="text-gray-600 text-lg leading-relaxed mb-8 font-antic">
+                <p className="text-muted-foreground text-lg leading-relaxed mb-8 font-antic">
                   {project.description}
                 </p>
 
@@ -158,7 +159,7 @@ export default function Project() {
                   {project.tags.map((tag, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-semibold border border-blue-100"
+                      className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-semibold border border-primary/20"
                     >
                       {tag}
                     </span>
@@ -170,17 +171,19 @@ export default function Project() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20"
+                    className="flex items-center gap-2 px-6 py-3 bg-primary  text-sm sm:text-primary-foreground rounded-full font-bold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
                   >
-                    <Eye size={18} /> Live Demo
+                    <Eye size={18} />{" "}
+                    <div className="hidden sm:inline">Live Demo</div>
                   </a>
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-6 py-3 bg-white text-gray-800 border border-gray-200 rounded-full font-bold hover:bg-gray-50 hover:border-gray-300 transition-all"
+                    className="flex items-center gap-2 px-6 py-3 bg-card    text-sm sm:text-foreground border border-border rounded-full font-bold hover:bg-accent hover:border-accent transition-all"
                   >
-                    <Github size={18} /> Source Code
+                    <Github size={18} />{" "}
+                    <div className="hidden sm:inline">Source Code</div>
                   </a>
                 </div>
               </div>

@@ -156,7 +156,7 @@ export default function Contact() {
                     Email
                   </p>
                   <a
-                    href="mailto:abdulmateensohailking@gmail.com"
+                    href="mailto:am.coders.web@gmail.com"
                     className="
     text-lg
     sm:text-xl
@@ -168,7 +168,7 @@ export default function Contact() {
     transition-colors
   "
                   >
-                    abdulmateensohailking@gmail.com
+                    am.coders.web@gmail.com
                   </a>
                 </div>
               </div>
